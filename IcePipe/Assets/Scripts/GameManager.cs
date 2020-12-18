@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     bool siraikide;
 
     int Rand;
-    public GameObject[] İces;
+    public GameObject[] Ices;
     Quaternion rotation;
     Vector3 distance;
     public float addPOs;
@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
 
         distance = new Vector3(0.9f, 0, 0);
 
-        for(int i=0;i<=15;i++)
+        for(int i=0;i<=15;i++)                                          //başlangıçta hızlı bir şekilde 15 tane buz oluştursun 
         {
             ProduceIcesStart(i);
            
@@ -55,29 +55,30 @@ public class GameManager : MonoBehaviour
                 siraikide = false;
             }
         }
-        counter += Time.deltaTime;
-        if(counter>=0.4f)
+        counter += Time.deltaTime; 
+        if(counter>=0.4f)               //0.4 saniyede bir buzları oluştursun
         {
             ProduceIces();
             counter = 0;
         }
     }
-    void ProduceIces()
+     void ProduceIces()                                                                 //buz oluşturma 
     {
-        Rand = Random.Range(0, İces.Length);
-        var rand = Random.Range(-180, 180);
-        Vector3 vec = new Vector3(player.transform.position.x-90, 0, 0);
-        GameObject Clone = Instantiate(İces[Rand],vec, Quaternion.identity);
-        Clone.transform.rotation = Quaternion.Euler(new Vector3(rand, 0, 0));
+        Rand = Random.Range(0, Ices.Length);                                            // oluşturduğumuz buz dizisinin uzunluk sayısının arasından random sayı oluştur.
+        var rand = Random.Range(-180, 180);                                             //-180 ie 10 arası random sayı oluştur.
+        Vector3 vec = new Vector3(player.transform.position.x-90, 0, 0);                //buzların konumu x ekseninde playerdan -90 kadar uzakta oluşsun.(-) terse gittiğimiz için.
+        GameObject Clone = Instantiate(Ices[Rand],vec, Quaternion.identity);            //clone buz oluştur( oluşturduğmuz diziden rastgele bir buzu seç, belirlediğimiz pozisyonda olsun, rotasyonu boş: salt okunur en uygun yere yapar.
+        Clone.transform.rotation = Quaternion.Euler(new Vector3(rand, 0, 0));           //rotasyonu burada ayrı veriyoruz -180 ile 180 arasında olsun
 
     }
-    void ProduceIcesStart(int i)
+    void ProduceIcesStart(int i)                                                        //başlangıçta player a daha yakın buzları oluştursun
     {
-        Rand = Random.Range(0, İces.Length);
+        Rand = Random.Range(0, Ices.Length);
         var rand = Random.Range(-180, 180);
         Vector3 vec = new Vector3(player.transform.position.x - 5*i-5, 0, 0);
-        GameObject Clone = Instantiate(İces[Rand], vec, Quaternion.identity);
+        GameObject Clone = Instantiate(Ices[Rand], vec, Quaternion.identity);
         Clone.transform.rotation = Quaternion.Euler(new Vector3(rand, 0, 0));
 
     }
+    
 }

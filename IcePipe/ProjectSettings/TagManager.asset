@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - playertag
+  - gameobjecttag
+  - icetag
+  - sledtag
   layers:
   - Default
   - TransparentFX
