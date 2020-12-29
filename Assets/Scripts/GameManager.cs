@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,10 +15,15 @@ public class GameManager : MonoBehaviour
     public GameObject[] Ices;
     Quaternion rotation;
     Vector3 distance;
-    public float addPOs;
+    
 
     public GameObject emerald;
     public GameObject ruby;
+    public GameObject diamond;
+
+
+    
+    
 
     void Start()
     {
@@ -30,14 +36,11 @@ public class GameManager : MonoBehaviour
 
         distance = new Vector3(0.9f, 0, 0);
 
-        for(int i=0;i<=15;i++)                                          //başlangıçta hızlı bir şekilde 15 tane buz oluştursun 
+        for(int i=0;i<=13;i++)                                          //başlangıçta hızlı bir şekilde 15 tane buz oluştursun 
         {
             ProduceIcesStart(i);
            
-        }
-
-
-        
+        }    
 
     }
     //TODO: burada bir şey yapacağım
@@ -61,26 +64,40 @@ public class GameManager : MonoBehaviour
                 siraikide = false;
             }
         }
+
+
+
+
         counter += Time.deltaTime; 
-        if(counter>=0.4f)               //0.4 saniyede bir buzları oluştursun
+        if(counter>=0.8f)               //0.4 saniyede bir buzları oluştursun
         {
             ProduceIces();   
             counter = 0;
         }
 
         counter2 += Time.deltaTime;
-        if(counter2>=0.5f)
+        if(counter2>=0.8f)
         {
             ProduceEmerald();
             counter2 = 0;
         }
         counter3 += Time.deltaTime;
-        if(counter3>=5f)
+        if(counter3>=25f)
         {
             ProduceRuby();
             counter3 = 0;
         }
-        
+        counter4 += Time.deltaTime;
+        if (counter4 >= 56f)
+        {
+            ProduceDiamond();
+            counter4 = 0;
+        }
+
+
+
+
+
     }
      void ProduceIces()                                                                 //buz oluşturma 
     {
@@ -95,7 +112,7 @@ public class GameManager : MonoBehaviour
     {
         Rand = Random.Range(0, Ices.Length);
         var rand = Random.Range(-180, 180);
-        Vector3 vec = new Vector3(player.transform.position.x - 5*i-10, 0, 0);
+        Vector3 vec = new Vector3(player.transform.position.x - 15*i-15, 0, 0);
         GameObject Clone = Instantiate(Ices[Rand], vec, Quaternion.identity);
         Clone.transform.rotation = Quaternion.Euler(new Vector3(rand, 0, 0));
 
@@ -115,15 +132,17 @@ public class GameManager : MonoBehaviour
         Vector3 vec = new Vector3(player.transform.position.x - 90, 0, 0);
         GameObject Clone = Instantiate(ruby, vec, Quaternion.identity);
         Clone.transform.rotation = Quaternion.Euler(new Vector3(rand, 0, 0));
-        float speed = player.GetComponent<Player>().speed;
-        speed += 5;
-        counter4 = 0;
-        counter4 += Time.deltaTime;
-        if(counter4>=3)
-        {
-            speed -= 5;
-            counter4 = 0;
-        }
+    }
+    void ProduceDiamond()
+    {
+        var rand = Random.Range(-180, 180);
+        Vector3 vec = new Vector3(player.transform.position.x - 90, 0, 0);
+        GameObject Clone = Instantiate(diamond, vec, Quaternion.identity);
+        Clone.transform.rotation = Quaternion.Euler(new Vector3(rand, 0, 0));
        
     }
+
+
+
+   
 }

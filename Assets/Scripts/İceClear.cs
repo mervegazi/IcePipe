@@ -7,12 +7,6 @@ public class İceClear : MonoBehaviour
 
     void Start()
     {
-        Destroy(this.gameObject, 15); //15 saniye sonra buzları silsin
-    }
-
-   
-    void Update()
-    {
-        
-    }
+        Destroy(this.gameObject, 18); //15 saniye sonra buzları silsin
+    }   
 }

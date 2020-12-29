@@ -2,22 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Collision_Emerald : MonoBehaviour
+public class Collision_Diamond : MonoBehaviour
 {
-    int puan=0;
- 
     private void OnCollisionEnter(Collision Col)
     {
-        
         if (Col.gameObject.tag == "playertag" || Col.gameObject.tag == "sledtag")
         {
-           
-            puan += 10;
-
+            
             Destroy(this.gameObject);
-
-        
         }
     }
-   
 }

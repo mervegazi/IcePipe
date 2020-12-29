@@ -3548,7 +3548,7 @@ GameObject:
   - component: {fileID: 6611415989876715805}
   m_Layer: 0
   m_Name: Single_Ice-Pivot2
-  m_TagString: Untagged
+  m_TagString: icetag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
