@@ -3548,7 +3548,7 @@ GameObject:
   - component: {fileID: 6611415989876715805}
   m_Layer: 0
   m_Name: Single_Ice-Pivot2
-  m_TagString: Untagged
+  m_TagString: icetag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3661,6 +3661,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd38173f34c195b42b965c53db5bb356, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  icesound: {fileID: 0}
+  audioclip: {fileID: 8300000, guid: c529bc73124e2cf4eb5d544a3e49a5fc, type: 3}
 --- !u!1 &7366597189473179956
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,10 +5,12 @@ using UnityEngine;
 public class Collision_Ice : MonoBehaviour
 {
     Transform ice;
-   
+    public AudioSource icesound;
+    public AudioClip audioclip;
     void Start()
     {
         ice = transform.GetChild(0); //pivotsuz parent
+        icesound = GameObject.Find("audio").GetComponent<AudioSource>();
        
     }
 
@@ -24,7 +26,8 @@ public class Collision_Ice : MonoBehaviour
 
         if (Col.gameObject.tag == "playertag" || Col.gameObject.tag == "sledtag")       //buzumuzun colliderlarına tagı playertag veya sledtag olan bir obje çarptıysa  
         {
-
+           
+            icesound.PlayOneShot(audioclip); //kırılma sesi çalsın
             transform.GetChild(1).GetComponent<MeshRenderer>().enabled = false;         //buzumuzun içindeki dış kaplama collider'ı kapat
             transform.GetChild(2).GetComponent<MeshRenderer>().enabled = false;         //buzumuzun içindeki covering isimli kaplamayı da kapat
 

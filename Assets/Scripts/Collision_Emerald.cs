@@ -4,24 +4,24 @@ using UnityEngine;
 
 public class Collision_Emerald : MonoBehaviour
 {
-    int puan=0;
+    public AudioSource coinsound;
+    public AudioClip coinaudioclip;
 
-    
-    void Start()
+    private void Start()
     {
-        
+        coinsound = GameObject.Find("emeraldaudio").GetComponent<AudioSource>();
     }
-
-    void Update()
-    {
-        
-    }   
     private void OnCollisionEnter(Collision Col)
     {
-        if (Col.gameObject.tag == "playertag" || Col.gameObject.tag == "sledtag")
+        
+        if (Col.gameObject.tag == "playertag" || Col.gameObject.tag == "sledtag") //emeralda oyuncu veya kızak değdiğinde  objeyi yok et
         {
-            puan += 10;
+
+           coinsound.PlayOneShot(coinaudioclip); //alma sesi çalsın
             Destroy(this.gameObject);
+
+        
         }
     }
+   
 }

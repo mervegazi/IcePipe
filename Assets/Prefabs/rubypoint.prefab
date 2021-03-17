@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 2984287727307654387}
   m_Layer: 0
   m_Name: rubypoint
-  m_TagString: Untagged
+  m_TagString: rubytag
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -130,6 +130,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da540375988032c4eb7a552f63de82cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coinsound: {fileID: 0}
+  coinaudioclip: {fileID: 8300000, guid: 545400ca92b335d459fd1a005ca92f65, type: 3}
 --- !u!114 &2984287727307654387
 MonoBehaviour:
   m_ObjectHideFlags: 0

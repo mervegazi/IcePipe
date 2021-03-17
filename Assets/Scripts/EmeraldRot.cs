@@ -7,13 +7,13 @@ public class EmeraldRot : MonoBehaviour
    
     void Start()
     {
-        transform.rotation = Quaternion.Euler(0, 180, 0);
+        transform.rotation = Quaternion.Euler(0, 180, 0); //kendi etrafındaki rostasyonunu sabitledik dik dursun diye
     }
 
   
     void Update()
     {
-        transform.Rotate(new Vector3(0, Time.deltaTime * 150, 0));
+        transform.Rotate(new Vector3(0, Time.deltaTime * 150, 0)); //kendi etrafındaki rostasyonu y ekseninde sürekli dönsün
     }
         
 }

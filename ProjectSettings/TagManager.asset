@@ -9,6 +9,9 @@ TagManager:
   - icetag
   - sledtag
   - emeraldtag
+  - diamondtag
+  - rubytag
+  - pipetag
   layers:
   - Default
   - TransparentFX
