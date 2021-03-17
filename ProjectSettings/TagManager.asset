@@ -11,7 +11,6 @@ TagManager:
   - emeraldtag
   - diamondtag
   - rubytag
-  - pipetag
   layers:
   - Default
   - TransparentFX

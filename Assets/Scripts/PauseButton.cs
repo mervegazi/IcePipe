@@ -6,20 +6,28 @@ using UnityEngine.UI;
 public class PauseButton : MonoBehaviour
 {
     public GameObject panel;
-    bool IsPaused;
+    bool IsPaused = false;
+
+    private void Start()
+    {
+        panel.SetActive(false);
+    }
     public void PauseGame()
     {
-        if (IsPaused) 
-        {   
-            panel.SetActive(false);
+        if (IsPaused)
+        {
             Time.timeScale = 1;
+            panel.SetActive(false);
             IsPaused = false;
+
         }
         else
         {
+            Time.timeScale = 0;
             panel.SetActive(true);
-            Time.timeScale = 0; // pause tuşuna basınca zamanı durdurma
             IsPaused = true;
+            
         }
     }
+
 }

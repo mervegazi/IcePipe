@@ -7,7 +7,7 @@ public class DiamondRot : MonoBehaviour
     
     void Start()
     {
-      transform.rotation = Quaternion.Euler(0, 0, 0); //EmeraldRot taki işlemler ver açıklamalarla aynı 
+      transform.rotation = Quaternion.Euler(0, 0, 0);
     }
 
     

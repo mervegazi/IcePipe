@@ -117,8 +117,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ca01bb8207430544abb3afa52bdde8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinsound: {fileID: 0}
-  coinaudioclip: {fileID: 8300000, guid: 545400ca92b335d459fd1a005ca92f65, type: 3}
 --- !u!1 &6137745644995671753
 GameObject:
   m_ObjectHideFlags: 0

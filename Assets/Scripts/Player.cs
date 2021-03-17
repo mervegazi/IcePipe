@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
     float CurrentX, rotateX;
     public GameObject bos;
 
-    public int puan=0;
+    int puan=0;
     public Text puantext;
     public static bool isAccelerating;
 
@@ -24,8 +24,6 @@ public class Player : MonoBehaviour
     public Healthbar healthBar;
 
     public GameObject gameoverpanel;
-    public Text GameoverpuanText;
-    public int toplamCoin;
 
     void Start()
     {
@@ -37,17 +35,17 @@ public class Player : MonoBehaviour
         playerposx = this.transform.position.x; //değişkene playerin pozisyonunu aldık.
         speed = 8;                             //player in ve onu takip eden kameranın x ekseninde hızı.
 
+
         distance = new Vector3(0, 0.78333f, 0);
+
 
     }
     bool isokay,isokay2,isokay3;
     float counter,counter2;
-
-    public object GameObject { get; private set; }
-
     void Update()
     {
-
+       
+       
         puantext.text = puan.ToString();
 
         if (!isokay2)
@@ -57,6 +55,7 @@ public class Player : MonoBehaviour
         transform.position = pos;                                                          //ayarladığımız yeni pozisyon playerin pozisyonu olsun 
 
         }
+
 
         //***Dönme Hareketi***
         if (Input.GetMouseButtonDown(0))                    //mause basıldığında 
@@ -69,10 +68,10 @@ public class Player : MonoBehaviour
             
             if (isokay2)
             {
-            CurrentX += Input.GetAxis("Mouse X")* 4.5f;           //mause un x değerini currentX e ekle eğer toplama yapmazsak tek bir değer olduğu için yukarıda kalıcak karakter her basışta 
+            CurrentX += Input.GetAxis("Mouse X")* 2;           //mause un x değerini currentX e ekle eğer toplama yapmazsak tek bir değer olduğu için yukarıda kalıcak karakter her basışta 
             rotation = Quaternion.Euler(-CurrentX, 0, 0);     //Quaternion dairesel hareket için kullanılır, -(eksi) karakterin altından dönmesi için - Currentx diyoruz.
-            rotateX = Input.GetAxis("Mouse X")* 4.5f;             //mause un rotasyonunu rotateX e ata 
-            transform.position = bos.transform.position + rotation * distance; //yeni pozisyonumuz = orta nokta objemizin(centerpoint) pozisyonu + dairesel hareketli mause x rotasyonu * mesafeyle çarpıyoruz(kendi etrafında dönmesin boru etrafında dönsün diye)
+            rotateX = Input.GetAxis("Mouse X")* 2;             //mause un rotasyonunu rotateX e ata 
+            transform.position = bos.transform.position + rotation * distance; //yeni pozisyonumuz = orta nokta objemizin(centerpoint) pozisyonu + dairesel hareketli mause x pozisyonu * mesafeyle çarpıyoruz(kendi etrafında dönmesin boru etrafında dönsün diye)
             transform.Rotate(new Vector3(-rotateX, 0, 0));    // rotasyonumuzu mause'un rstasyonuna göre atadık. altından dönsün diye - verdik
                 playerposx -= Time.deltaTime * speed;                                              //playerin x'inin hızını ayarladık
                 Vector3 pos = new Vector3(playerposx, transform.position.y, transform.position.z); //hız değerini x pozisyonuna atadık
@@ -88,7 +87,7 @@ public class Player : MonoBehaviour
         }
         //***Bitiş***
 
-        if (isAccelerating) //collisionRuby den gelen isAccelerating değişkeni true ise hızı arttır 
+        if (isAccelerating)
         {
             speed += 5;
             isAccelerating = false;
@@ -98,7 +97,7 @@ public class Player : MonoBehaviour
         if (isokay)
         {
             
-            counter += Time.deltaTime; //hızı 5 saniyeliğine arttırsın
+            counter += Time.deltaTime;
             if (counter>=5)
             {
                 speed -= 5;
@@ -119,35 +118,32 @@ public class Player : MonoBehaviour
         }
 
     }
-    private void OnCollisionEnter(Collision Col) //Player bir şeye değince
+    private void OnCollisionEnter(Collision Col)
     {
-        if (Col.gameObject.tag == "emeraldtag") //emeralda değdiğinde puan arttır
+        if (Col.gameObject.tag == "emeraldtag")
         {
-            this.transform.GetChild(0).GetChild(0).GetComponent<ParticleSystem>().Play();
             puan++;
-            
+            puantext.text = puan.ToString();
         }
         if (Col.gameObject.tag == "rubytag")
         {
-            this.transform.GetChild(1).GetChild(0).GetComponent<ParticleSystem>().Play();
             isokay3 = true;
         }
-        if (Col.gameObject.tag == "icetag" &&!isokay3) //ice a değince canı azalt
+        if (Col.gameObject.tag == "icetag" &&!isokay3)
         {
                 TakeDamage(1);
            
         }
        
-        if (Col.gameObject.tag == "diamondtag") //diamond ı alınca canı fulleme
+        if (Col.gameObject.tag == "diamondtag")
         {
-            this.transform.GetChild(2).GetChild(0).GetComponent<ParticleSystem>().Play();
             healthBar.SetMaxHealth(maxHealth);
             currentHealth = maxHealth;
         }
 
     }
  
-   public void TakeDamage(int damage) //can azaltma ve bittiğinde gamover paneli açılımı
+   public void TakeDamage(int damage)
     {
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
@@ -155,10 +151,9 @@ public class Player : MonoBehaviour
         {
             //buraya bir patlama efekti. 
             Time.timeScale = 0;
-            GameoverpuanText.text = "Emerald: "+puantext.text;
-            toplamCoin= puan;
-            PlayerPrefs.SetInt("savedcoin", toplamCoin);
-            gameoverpanel.SetActive(true);           
+            gameoverpanel.SetActive(true);
+
+           // SceneManager.LoadScene(0);
 
         }
     }
