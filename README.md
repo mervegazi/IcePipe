@@ -1,7 +1,7 @@
 # IcePipe
 
 
-Buzdan boruda, kızakla kayan karakterin olduğu sonsuz bir oyundur. Toplanan zümrütlerle oyunun içinde bulunan marketten karakter ve kızak alınabilmektedir.
+Buzdan boruda, kızakla kayan karakterin olduğu sonsuz bir oyundur. Oyunun hızı, oyuncu hayatta kaldıkça yavaşça artmaktadır. Toplanan zümrütlerle oyunun içinde bulunan marketten karakter ve kızak alınabilmektedir.
 
 ---
 
