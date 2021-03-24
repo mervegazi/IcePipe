@@ -7,7 +7,7 @@ Buzdan boruda, kızakla kayan karakterin olduğu sonsuz bir oyundur. Oyunun hız
 
 ## Oyunun Amacı :
 
-Buzun üstünde kayarken sağ-sol manevralarla karşımıza çıkan sarkıt ve dikitlere çarpmadan zümrütleri(yeşil) toplamak, aynı zamanda nadiren çıkan yakutları(kırmızı) alıp hızımız artarken canımızın azalmadığı için daha kolay elmas toplamak, bunun yanı sıra yine nadiren gelen elmasları(sarı) alıp canımızı doldurmak.
+Buzun üstünde kayarken sağ-sol manevralarla karşımıza çıkan sarkıt ve dikitlere çarpmadan zümrütleri(yeşil) toplamak, aynı zamanda nadiren çıkan yakutları(kırmızı) aldığımzda hızımız artarken canımızın azalmadığı için daha kolay zümrüt toplamak, bunun yanı sıra yine nadiren gelen elmasları(sarı) alıp canımızı doldurmak.
 
 ---
 
