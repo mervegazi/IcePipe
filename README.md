@@ -28,6 +28,7 @@ Buzun üstünde kayarken sağ-sol manevralarla karşımıza çıkan sarkıt ve d
 - **Autodesk Maya 2019**
 - **Blender 2.91**
 
+_Oyun fikri ve tasarımı bana ait olup özgün projemdir._
 
 
 
